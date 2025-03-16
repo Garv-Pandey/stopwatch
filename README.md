@@ -1,12 +1,41 @@
-# React + Vite
+# Stopwatch Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+This project is a simple stopwatch application built using React. It is designed as a learning exercise to explore React concepts such as:
 
-Currently, two official plugins are available:
+- **useState** for managing component state.
+- **useRef** for persisting values without causing re-renders.
+- **useEffect** for handling side effects like intervals.
+- Event handling in React.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- **Start**: Begins counting time from zero or resumes from the stopped time.
+- **Stop**: Pauses the stopwatch while preserving elapsed time.
+- **Reset**: Resets the stopwatch back to zero.
 
-## Expanding the ESLint configuration
+## Technologies Used
+- React (useState, useRef, useEffect)
+- JavaScript (ES6+)
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Code Explanation
+### State and Refs
+- `useState` is used for `isActive`, which determines whether the stopwatch is running or not.
+- `useRef` is used for `startTime`, `elapsedTime`, and `intervalRef` to store values that persist across renders without triggering re-renders.
+
+### Interval Management
+- An interval is set using `setInterval` inside `useEffect`, which updates the elapsed time every 10 milliseconds.
+- The cleanup function inside `useEffect` ensures the interval is cleared when needed to prevent memory leaks.
+
+### Event Handlers
+- `start()`: Sets `isActive` to `true` and records the `startTime`.
+- `stop()`: Pauses the stopwatch and updates `elapsedTime`.
+- `reset()`: Stops the stopwatch and resets `elapsedTime` to zero.
+
+## Learning Outcomes
+This project helped in understanding:
+- When to use `useState` vs `useRef`.
+- Managing intervals inside `useEffect`.
+- Handling component updates efficiently.
+
+This project is made for **learning purposes** and serves as a foundation for understanding React hooks and state management.
+
